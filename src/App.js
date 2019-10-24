@@ -14,11 +14,9 @@ class App extends Component {
   render() {
       return (
           <div className="container">
-            <div className="row">
               {/* <h1>You Are {this.props.authorised}</h1> */}
               {/* <Form /> */}
               {/* <Post /> */}
-            </div>
           <Switch>
             <Route path="/login" component={Login} />
             <PrivateRoutes path="/dashboard" component={Dashboard} />
