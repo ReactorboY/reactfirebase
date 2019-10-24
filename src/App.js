@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {BrowserRouter as Router} from 'react-router-dom'
 import {connect} from 'react-redux'
+import Post from './components/Post'
 import Form from './components/Form'
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
           <div className="row">
             <h1>You Are {this.props.authorised}</h1>
             <Form />
+            <Post />
           </div>
         </div>
       </Router>
