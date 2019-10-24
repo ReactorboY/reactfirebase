@@ -1,7 +1,8 @@
 import {IS_AUTH} from '../constants'
 
 const initialState = {
-    isLoggedIn: false
+    isLoggedIn: false,
+    authorised: "Not Authorised"
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -9,7 +10,8 @@ const rootReducer = (state = initialState, action) => {
         case IS_AUTH:
             return {
                 ...state,
-                isLoggedIn: action.payload
+                isLoggedIn: action.payload.isLoggedIn,
+                authorised: action.payload.authorised
             }      
             default:
                 return state      

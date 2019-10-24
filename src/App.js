@@ -5,7 +5,7 @@ class App extends Component {
     return (
       <div className="container">
         <div className="row">
-          <h1>You Are logged in</h1>
+          <h1>You Are </h1>
         </div>
       </div>
     )
