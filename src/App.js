@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import {BrowserRouter as Router} from 'react-router-dom'
-import {connect} from 'react-redux'
-import Post from './components/Post'
-import Form from './components/Form'
+import {Switch,Route} from 'react-router-dom'
+import Login from './components/auth/Login'
+import PrivateRoutes from './components/utils/PrivateRoutes'
+import Dashboard from './components/pages/Dashboard'
 
 class App extends Component {
   constructor(props) {
@@ -12,25 +12,20 @@ class App extends Component {
     }
   }
   render() {
-    return (
-      <Router>
-        <div className="container">
-          <div className="row">
-            <h1>You Are {this.props.authorised}</h1>
-            <Form />
-            <Post />
+      return (
+          <div className="container">
+            <div className="row">
+              {/* <h1>You Are {this.props.authorised}</h1> */}
+              {/* <Form /> */}
+              {/* <Post /> */}
+            </div>
+          <Switch>
+            <Route path="/login" component={Login} />
+            <PrivateRoutes path="/dashboard" component={Dashboard} />
+          </Switch>
           </div>
-        </div>
-      </Router>
-    )
-  }
+      )
+    }
 }
 
-const mapStateToProps = state => {
-  return {
-    isLoggedIn: state.isLoggedIn,
-    authorised: state.authorised
-  }
-}
-
-export default connect(mapStateToProps)(App)
+export default App
