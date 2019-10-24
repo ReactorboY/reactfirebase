@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {BrowserRouter as Router} from 'react-router-dom'
 import {connect} from 'react-redux'
 import Form from './components/Form'
 
@@ -11,12 +12,14 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <h1>You Are {this.props.authorised}</h1>
-          <Form />
+      <Router>
+        <div className="container">
+          <div className="row">
+            <h1>You Are {this.props.authorised}</h1>
+            <Form />
+          </div>
         </div>
-      </div>
+      </Router>
     )
   }
 }
