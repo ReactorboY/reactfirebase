@@ -1,4 +1,4 @@
-import {IS_AUTH, DATA_REQUESTED} from '../constants'
+import {IS_AUTH, DATA_REQUESTED,LOGIN_REQUESTED} from '../constants'
 
 export function auth(payload){
     return {
@@ -10,5 +10,12 @@ export function auth(payload){
 export function getData() {
     return {
         type:DATA_REQUESTED
+    }
+}
+
+export const getLogin = (data) => {
+    return {
+        type:LOGIN_REQUESTED,
+        payload:data
     }
 }

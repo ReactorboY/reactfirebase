@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {auth} from '../../js/actions'
+import {getLogin} from '../../js/actions'
 
 class Login extends Component {
     constructor(props) {
@@ -18,6 +18,15 @@ class Login extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         console.log('From Login form')
+        const newUser = {
+            username: this.state.username,
+            password: this.state.password
+        }
+        this.props.getLogin(newUser)
+        this.setState({
+            username:"",
+            password:""
+        })
     }
     render() {
         return (
@@ -45,7 +54,7 @@ class Login extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        auth: data => dispatch(auth(data))
+        getLogin: data => dispatch(getLogin(data))
     }
 }
 

@@ -1,9 +1,10 @@
-import {IS_AUTH,DATA_LOADED} from '../constants'
+import {IS_AUTH,DATA_LOADED,LOGIN_LOADED} from '../constants'
 
 const initialState = {
     isLoggedIn: false,
     authorised: "Not Authorised",
-    remoteArticles:[]
+    remoteArticles:[],
+    username:""
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -18,6 +19,11 @@ const rootReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 remoteArticles: state.remoteArticles.concat(action.payload)
             })
+        case LOGIN_LOADED:
+            return {
+                ...state,
+                username:action.payload.data.username
+            }
             default:
                 return state      
     }

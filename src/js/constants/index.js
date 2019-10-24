@@ -1,3 +1,5 @@
 export const IS_AUTH = "IS_AUTH"
 export const DATA_LOADED = "DATA_LOADED"
 export const DATA_REQUESTED = "DATA_REQUESTED"
+export const LOGIN_REQUESTED = "LOGIN_REQUESTED"
+export const LOGIN_LOADED = "LOGIN_LOADED"
