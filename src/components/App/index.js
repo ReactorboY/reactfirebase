@@ -1,7 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
+import {withFirebase} from '../Firebase'
 
-const App = () => (
-    <div>Hello</div>
-)
+class App extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            notes:{}
+        }
+    }
 
-export default App
+    componentDidMount() {
+        this.props.firebase.db()
+    }
+    render() {
+        return (
+            <div>
+                Hi
+            </div>
+        )
+    }
+}
+
+export default withFirebase(App)
