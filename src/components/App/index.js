@@ -1,24 +1,29 @@
 import React, { Component } from 'react'
-import {withFirebase} from '../Firebase'
+import Firebase from '../Firebase'
 
 class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            notes:{}
+            notes:[]
         }
     }
 
     componentDidMount() {
-        this.props.firebase.db()
+        const fire = new Firebase()
+        fire.notes().get().then(querySnapshot => {
+            const data = querySnapshot.docs.map(doc => doc.data())
+            console.log(data)
+            this.setState({notes:data})
+        })
     }
+
     render() {
         return (
             <div>
-                Hi
+                
             </div>
         )
     }
 }
-
-export default withFirebase(App)
+export default App

@@ -17,11 +17,7 @@ class Firebase {
         this.db = app.firestore()
     }
 
-    db = () => this.db.db.collection("notes").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-    });
-});
+    notes = () =>  this.db.collection('notes')
 }
 
 export default Firebase
